@@ -1,6 +1,6 @@
 const Converter = (props) => {
   const {
-    value,
+    updatedValue,
     currencies,
     currencyValue,
     handleChangeValue,
@@ -22,7 +22,7 @@ const Converter = (props) => {
           id="startingCurrency"
           className="form__input"
           min="1"
-          value={value}
+          value={updatedValue}
           onChange={handleChangeValue}
         >
         </input>

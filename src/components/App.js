@@ -18,8 +18,8 @@ function App() {
   const [rates, setRates] = useState();
 
   const [valueOfSelectedCurrency, setValueOfSelectedCurrency] = useState(true)
-  let startValue
-  let endValue
+  let startValue;
+  let endValue;
   if (valueOfSelectedCurrency) {
     startValue = value;
     endValue = value * rates;
@@ -66,11 +66,12 @@ function App() {
         // set exchangfe rate value of first item in the array 
         setRates(data.rates[firstValue])
       })
-  },
-    [])
+  }, [])
+
 
   useEffect(() => {
     if (startCurrency != null && endCurrency != null) {
+
       const newSearchParams = new URLSearchParams(
         {
           base: `${startCurrency}`
@@ -105,7 +106,7 @@ function App() {
         currencyValue={startCurrency}
         handleCurrencyChange={handleStartCurrencyChange}
         handleChangeValue={handleStartChangeValue}
-        value={startValue}
+        updatedValue={startValue}
       />
 
       {/* output currency */}
@@ -114,7 +115,7 @@ function App() {
         currencyValue={endCurrency}
         handleCurrencyChange={handleEndCurrencyChange}
         handleChangeValue={handleEndChangeValue}
-        value={endValue}
+        updatedValue={endValue}
       />
     </>
   );
