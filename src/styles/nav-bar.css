@@ -1,0 +1,40 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  border-bottom: 2px solid #333;
+  height: 10vh;
+}
+
+.nav__logo {
+  text-decoration: none;
+  color: red;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.nav__links-container {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.nav__links-container-items {
+  list-style: none;
+}
+
+.nav__links-container-links {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #333;
+  padding: 10px 30px;
+  border-radius: 5px;
+} 
+
+.nav__links-container-links:hover {
+  color: red;
+  background-color: whitesmoke;
+}
