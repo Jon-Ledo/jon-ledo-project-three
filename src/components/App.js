@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import '../styles/App.css';
 import Header from './Header';
 import Converter from './Converter';
+import RomanNumeral from './RomanNumeral';
 
 function App() {
   // API url
@@ -117,6 +118,9 @@ function App() {
         handleChangeValue={handleEndChangeValue}
         updatedValue={endValue}
       />
+
+      {/* roman numeral temporary space */}
+      <RomanNumeral />
     </>
   );
 }

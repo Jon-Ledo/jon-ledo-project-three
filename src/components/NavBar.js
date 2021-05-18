@@ -10,13 +10,13 @@ const NavBar = () => {
       <ul className="nav__links-container">
         <li className="nav__links-container-items">
           <a href="#home" className="nav__links-container-links">
-            Home
+            Currency
           </a>
         </li>
 
         <li className="nav__links-container-items">
           <a href="#home" className="nav__links-container-links">
-            Blog
+            Roman Numerals
           </a>
         </li>
 
