@@ -28,24 +28,31 @@ const RomanNumeral = () => {
     }
 
     let romanNum = "";
-    for (let key in keyIndex) {
-      // console.log(key, keyIndex[key]);
-      while (num >= keyIndex[key]) {
-        // build the numeral string
-        romanNum += key;
-        // decrease the num until 0 
-        num -= keyIndex[key]
+    if (num > 99999) {
+      return "too high!"
+    } else if (!num) {
+      return "real numbers please"
+    } else {
+      for (let key in keyIndex) {
+        while (num >= keyIndex[key]) {
+          // build the numeral string
+          romanNum += key;
+          // decrease the num until 0 
+          num -= keyIndex[key]
+        }
       }
     }
+
+
     // fully constructed roman numeral string
     return romanNum
   }
 
 
-  function handleChangeEvent(e) {
-    setRomanInput(e.target.value)
+  function handleChangeEvent(event) {
+    setRomanInput(event.target.value)
     console.log(romanInput, "the usestate");
-    console.log(e.target.value, "the target value");
+    console.log(event.target.value, "the target value");
   }
 
   const handleClick = (event) => {
