@@ -7,8 +7,16 @@ import RomanNumeral from './RomanNumeral';
 const apiKey = 'd7d99b359e28897f35e79f8fca7e89ce'
 
 function App() {
-  // API url
-  const url = new URL(`http://api.exchangeratesapi.io/v1/latest?access_key=${apiKey}`);
+  // API url + proxy server
+  const proxiedUrl = `http://api.exchangeratesapi.io/v1/latest`;
+
+  const url = new URL('https://proxy.hackeryou.com');
+  url.search = new URLSearchParams({
+    reqUrl: proxiedUrl,
+    'params[access_key]': apiKey,
+    'params[symbols]': 'EUR, GBP, JPY, USD'
+  });
+
   // starting state for API fetch
   const [currencies, setCurrencies] = useState([]);
   // states for the first currency
@@ -53,6 +61,8 @@ function App() {
         })
         .then((jsonResponse) => {
           const data = jsonResponse;
+          console.log(data);
+
           // store that data into the useState variables 
 
           setCurrencies([...Object.keys(data.rates)])
