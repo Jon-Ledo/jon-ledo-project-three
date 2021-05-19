@@ -9,13 +9,13 @@ const NavBar = () => {
 
       <ul className="nav__links-container">
         <li className="nav__links-container-items">
-          <a href="#home" className="nav__links-container-links">
+          <a href="#converter" className="nav__links-container-links">
             Currency
           </a>
         </li>
 
         <li className="nav__links-container-items">
-          <a href="#home" className="nav__links-container-links">
+          <a href="#romanNumeral" className="nav__links-container-links">
             Roman Numerals
           </a>
         </li>

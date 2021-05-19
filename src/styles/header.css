@@ -1,0 +1,10 @@
+.home {
+  min-height: 10vh;
+}
+
+.home h1 {
+  margin-top: 12rem;
+  text-align: center;
+  font-size: 5rem;
+  letter-spacing: 1px;
+}

@@ -1,0 +1,53 @@
+.roman-numerals-container {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.roman-numerals-container h2 {
+  font-size: 4rem;
+  letter-spacing: 1px;
+  margin: 2rem auto;
+}
+
+.roman-numerals-container p {
+  font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.roman-numerals__form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roman-numerals__label {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 2rem;
+}
+
+.roman-numerals__input {
+  font-size: 2rem;
+  padding: 1rem;
+  
+}
+
+.roman-numerals__btn {
+  padding: 1rem 3rem;
+  font-size: 2rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin: 2rem;
+  background: none;
+}
+
+.roman-numerals__btn:hover {
+  background: whitesmoke;
+  color: red;
+}

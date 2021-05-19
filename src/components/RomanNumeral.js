@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const RomanNumeral = () => {
   const [roman, setRoman] = useState();
-  const [romanInput, setRomanInput] = useState()
+  const [romanInput, setRomanInput] = useState();
 
   const convertToRoman = (num) => {
     const keyIndex = {
@@ -55,22 +55,39 @@ const RomanNumeral = () => {
   }
 
   return (
-    <div className="roman-numeral-container">
-      <form action="">
-        <label htmlFor="">Enter your number here</label>
+    <div className="roman-numerals-container" id="romanNumeral">
+      <h2>Roman Numeral Number Converter</h2>
+      <form className="roman-numerals__form-container">
+        <label
+          htmlFor="roman-numeral-converter"
+          className="roman-numerals__label"
+        >
+          Enter your number here
+        </label>
+
+
         <input
+          className="roman-numerals__input"
+          name="roman-numeral-converter"
           type="number"
           value={romanInput}
           onChange={handleChangeEvent}
           min="1"
-          max="50000"
+          max="99999"
+          placeholder="max 99,999"
         >
         </input>
 
-        <button type="submit" onClick={handleClick}>Submit</button>
+        <button
+          type="submit"
+          className="roman-numerals__btn"
+          onClick={handleClick}
+        >
+          Romanize it
+        </button>
       </form>
 
-      <p id="romanNumeralOutput">
+      <p className="roman-numerals__output" id="romanNumeralOutput">
         {roman}
       </p>
     </div>
