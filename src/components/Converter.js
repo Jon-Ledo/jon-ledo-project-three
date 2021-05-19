@@ -7,6 +7,10 @@ const Converter = (props) => {
     handleCurrencyChange
   } = props
 
+  console.log(typeof updatedValue);
+
+  let parseIntUpdatedValue = parseFloat(updatedValue).toFixed(2)
+
   return (
     <div className="converter-container">
       <form>
@@ -21,10 +25,10 @@ const Converter = (props) => {
           id="currencyInputs"
           className="form__input"
           min="1"
-          value={updatedValue}
+          value={parseIntUpdatedValue}
           onChange={handleChangeValue}
-        >
-        </input>
+        />
+
 
         <select
           className="form__select"
