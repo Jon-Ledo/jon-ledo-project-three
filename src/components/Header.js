@@ -2,10 +2,10 @@ import NavBar from './NavBar';
 
 const Header = () => {
   return (
-    <header id="home">
+    <header className="home">
       <NavBar />
-      <h1>Title of the Page</h1>
-      <h2>Currency Converter</h2>
+      <h1 id="home">Online Converters</h1>
+      <p>Pick what you need from the top</p>
     </header>
   );
 }

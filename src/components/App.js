@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import '../styles/App.css';
 import Header from './Header';
 import Converter from './Converter';
+import RomanNumeral from './RomanNumeral';
 
 function App() {
   // API url
@@ -98,26 +99,33 @@ function App() {
   }
 
   return (
-    <>
+    <div className="wrapper">
       <Header />
-      {/* starting currency */}
-      <Converter
-        currencies={currencies}
-        currencyValue={startCurrency}
-        handleCurrencyChange={handleStartCurrencyChange}
-        handleChangeValue={handleStartChangeValue}
-        updatedValue={startValue}
-      />
 
-      {/* output currency */}
-      <Converter
-        currencies={currencies}
-        currencyValue={endCurrency}
-        handleCurrencyChange={handleEndCurrencyChange}
-        handleChangeValue={handleEndChangeValue}
-        updatedValue={endValue}
-      />
-    </>
+      {/* starting currency */}
+      <div className="converter-container-main" id="converter">
+        <h2 className="converter__title">Currency Converter</h2>
+        <Converter
+          currencies={currencies}
+          currencyValue={startCurrency}
+          handleCurrencyChange={handleStartCurrencyChange}
+          handleChangeValue={handleStartChangeValue}
+          updatedValue={startValue}
+        />
+
+        {/* output currency */}
+        <Converter
+          currencies={currencies}
+          currencyValue={endCurrency}
+          handleCurrencyChange={handleEndCurrencyChange}
+          handleChangeValue={handleEndChangeValue}
+          updatedValue={endValue}
+        />
+      </div>
+
+      {/* roman numeral temporary space */}
+      <RomanNumeral />
+    </div>
   );
 }
 

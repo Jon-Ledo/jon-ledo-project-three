@@ -1,0 +1,24 @@
+.converter-container-main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.converter__title {
+  font-size: 4rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.form__input {
+  padding: 10px;
+  font-size: 1.8rem;
+}
+
+.form__select {
+  padding: 11px;
+  font-size: 1.8rem;
+  margin: 10px;
+}

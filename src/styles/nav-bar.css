@@ -5,6 +5,11 @@
   padding: 10px 30px;
   border-bottom: 2px solid #333;
   height: 10vh;
+  background: #e7e4e4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .nav__logo {

@@ -8,7 +8,7 @@ const Converter = (props) => {
   } = props
 
   return (
-    <div>
+    <div className="converter-container">
       <form>
         <label
           // FIXME change the names here (startingcurrency)
