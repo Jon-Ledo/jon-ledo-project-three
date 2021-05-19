@@ -22,7 +22,7 @@ const NavBar = () => {
 
         <li className="nav__links-container-items">
           <a href="#home" className="nav__links-container-links">
-            Contact
+            Coming soon...
           </a>
         </li>
       </ul>

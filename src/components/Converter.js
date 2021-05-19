@@ -11,15 +11,14 @@ const Converter = (props) => {
     <div className="converter-container">
       <form>
         <label
-          // FIXME change the names here (startingcurrency)
-          htmlFor="startingCurrency"
+          htmlFor="currencyInputs"
           className="sr-only"
         >Starting Currency
         </label>
         <input
           type="number"
-          name="startingCurrency"
-          id="startingCurrency"
+          name="currencyInputs"
+          id="currencyInputs"
           className="form__input"
           min="1"
           value={updatedValue}
@@ -34,7 +33,10 @@ const Converter = (props) => {
         >
           {/* populate the options with the array key names */}
           {currencies.map((currency, index) => {
-            return <option key={index} value={currency}>{currency}</option>
+            return (
+
+              <option key={index} value={currency}>{currency}</option>
+            )
           })}
 
         </select>
