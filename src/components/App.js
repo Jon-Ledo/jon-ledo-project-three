@@ -4,9 +4,11 @@ import Header from './Header';
 import Converter from './Converter';
 import RomanNumeral from './RomanNumeral';
 
+const apiKey = 'd7d99b359e28897f35e79f8fca7e89ce'
+
 function App() {
   // API url
-  const url = new URL(`https://api.ratesapi.io/api/latest`);
+  const url = new URL(`http://api.exchangeratesapi.io/v1/latest?access_key=${apiKey}`);
   // starting state for API fetch
   const [currencies, setCurrencies] = useState([]);
   // states for the first currency
@@ -14,7 +16,7 @@ function App() {
   // states for the second currency
   const [endCurrency, setEndCurrency] = useState();
   // states for updating the input elements
-  const [value, setValue] = useState(1); // base value CAD
+  const [value, setValue] = useState(1); // base value EUR
   const [rates, setRates] = useState();
 
   const [valueOfSelectedCurrency, setValueOfSelectedCurrency] = useState(true)
@@ -24,7 +26,8 @@ function App() {
   if (valueOfSelectedCurrency) {
     startValue = value;
     endValue = value * rates;
-  } else {
+  }
+  else {
     startValue = value;
     endValue = value / rates
   }
@@ -42,44 +45,35 @@ function App() {
 
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(
-      {
-        base: 'CAD'
-      }
-    );
 
-    // fetch data from API
-    url.search = searchParams;
-    fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonResponse) => {
-        const data = jsonResponse;
-        // store that data into the useState variables 
-        //"Object.keys() method returns an array of a given object's own enumerable property names"
-        // data.base === CAD (set at the start) 
-        setCurrencies([data.base, ...Object.keys(data.rates)])
-        setStartCurrency(data.base)
-        // set the end currency option to the first currency from the array
-        const firstValue = Object.keys(data.rates)[0]
-        setEndCurrency(firstValue)
-        setRates(data.rates[firstValue])
-      })
+    const searchUrl = () => {
+      fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((jsonResponse) => {
+          const data = jsonResponse;
+          // store that data into the useState variables 
+
+          setCurrencies([...Object.keys(data.rates)])
+          setStartCurrency(data.base)
+          // set the end currency option to the first currency from the array
+          const firstValue = Object.keys(data.rates)[0]
+          setEndCurrency(firstValue)
+          setRates(data.rates[firstValue])
+        })
+    }
+
+    searchUrl();
+
   }, [])
 
 
   useEffect(() => {
-    if (startCurrency != null && endCurrency != null) {
+    const searchUrl = url
 
-      const newSearchParams = new URLSearchParams(
-        {
-          base: `${startCurrency}`
-        }
-      );
-      //fetch updated API for new conversion
-      url.search = newSearchParams;
-      fetch(url)
+    if (startCurrency != null && endCurrency != null) {
+      fetch(searchUrl)
         .then(response => response.json())
         .then(jsonResponse => setRates(jsonResponse.rates[endCurrency]))
     }
@@ -88,6 +82,7 @@ function App() {
 
   // functions for updating the currency outputs, when directly being changed
   const handleStartChangeValue = (event) => {
+
     setValue(event.target.value)
     setValueOfSelectedCurrency(true)
   }
