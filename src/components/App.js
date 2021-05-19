@@ -7,7 +7,6 @@ import RomanNumeral from './RomanNumeral';
 function App() {
   // API url
   const url = new URL(`https://api.ratesapi.io/api/latest`);
-
   // starting state for API fetch
   const [currencies, setCurrencies] = useState([]);
   // states for the first currency
@@ -21,6 +20,7 @@ function App() {
   const [valueOfSelectedCurrency, setValueOfSelectedCurrency] = useState(true)
   let startValue;
   let endValue;
+
   if (valueOfSelectedCurrency) {
     startValue = value;
     endValue = value * rates;
@@ -56,15 +56,14 @@ function App() {
       })
       .then((jsonResponse) => {
         const data = jsonResponse;
-        console.log(data);
         // store that data into the useState variables 
         //"Object.keys() method returns an array of a given object's own enumerable property names"
         // data.base === CAD (set at the start) 
         setCurrencies([data.base, ...Object.keys(data.rates)])
         setStartCurrency(data.base)
+        // set the end currency option to the first currency from the array
         const firstValue = Object.keys(data.rates)[0]
-        setEndCurrency(firstValue) // FIXME change to random
-        // set exchangfe rate value of first item in the array 
+        setEndCurrency(firstValue)
         setRates(data.rates[firstValue])
       })
   }, [])
@@ -84,11 +83,10 @@ function App() {
         .then(response => response.json())
         .then(jsonResponse => setRates(jsonResponse.rates[endCurrency]))
     }
-  }, [startCurrency, endCurrency])
+  }, [startCurrency, endCurrency]);
 
 
-
-  // 
+  // functions for updating the currency outputs, when directly being changed
   const handleStartChangeValue = (event) => {
     setValue(event.target.value)
     setValueOfSelectedCurrency(true)
@@ -102,9 +100,9 @@ function App() {
     <div className="wrapper">
       <Header />
 
-      {/* starting currency */}
       <div className="converter-container-main" id="converter">
         <h2 className="converter__title">Currency Converter</h2>
+        {/* starting currency */}
         <Converter
           currencies={currencies}
           currencyValue={startCurrency}
