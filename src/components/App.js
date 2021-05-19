@@ -4,6 +4,7 @@ import Header from './Header';
 import Converter from './Converter';
 import RomanNumeral from './RomanNumeral';
 
+// 	"Access Restricted - Your current Subscription Plan does not support HTTPS Encryption."
 const apiKey = 'd7d99b359e28897f35e79f8fca7e89ce'
 
 function App() {
@@ -45,35 +46,28 @@ function App() {
 
 
   useEffect(() => {
+    fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((jsonResponse) => {
+        const data = jsonResponse;
+        // store that data into the useState variables 
 
-    const searchUrl = () => {
-      fetch(url)
-        .then((response) => {
-          return response.json();
-        })
-        .then((jsonResponse) => {
-          const data = jsonResponse;
-          // store that data into the useState variables 
-
-          setCurrencies([...Object.keys(data.rates)])
-          setStartCurrency(data.base)
-          // set the end currency option to the first currency from the array
-          const firstValue = Object.keys(data.rates)[0]
-          setEndCurrency(firstValue)
-          setRates(data.rates[firstValue])
-        })
-    }
-
-    searchUrl();
+        setCurrencies([...Object.keys(data.rates)])
+        setStartCurrency(data.base)
+        // set the end currency option to the first currency from the array
+        const firstValue = Object.keys(data.rates)[0]
+        setEndCurrency(firstValue)
+        setRates(data.rates[firstValue])
+      })
 
   }, [])
 
 
   useEffect(() => {
-    const searchUrl = url
-
     if (startCurrency != null && endCurrency != null) {
-      fetch(searchUrl)
+      fetch(url)
         .then(response => response.json())
         .then(jsonResponse => setRates(jsonResponse.rates[endCurrency]))
     }
