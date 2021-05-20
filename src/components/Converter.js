@@ -9,8 +9,6 @@ const Converter = (props) => {
     handleCurrencyChange
   } = props
 
-  console.log(typeof updatedValue);
-
   let parseIntUpdatedValue = parseFloat(updatedValue).toFixed(2)
 
   return (
