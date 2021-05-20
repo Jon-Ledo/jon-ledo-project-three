@@ -3,12 +3,22 @@
 }
 
 .home h1 {
-  padding-top: 40%;
+  padding-top: 20%;
   text-align: center;
-  font-size: 5rem;
+  font-size: 7rem;
   letter-spacing: 1px;
+  margin-bottom: 15px;
 }
 
-.home p {
-  font-size: 2rem;
+.home h2 {
+  font-size: 3rem;
+}
+
+.img-container {
+  display: block;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
 }

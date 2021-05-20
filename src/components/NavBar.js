@@ -4,26 +4,26 @@ const NavBar = () => {
       <p>
         <a href="#home" className="nav__logo">
           Logo //here
-        </a>
+          </a>
       </p>
 
       <ul className="nav__links-container">
         <li className="nav__links-container-items">
           <a href="#converter" className="nav__links-container-links">
             Currency
-          </a>
+            </a>
         </li>
 
         <li className="nav__links-container-items">
           <a href="#romanNumeral" className="nav__links-container-links">
             Roman Numerals
-          </a>
+            </a>
         </li>
 
         <li className="nav__links-container-items">
-          <a href="#home" className="nav__links-container-links">
+          <a href="#comingSoon" className="nav__links-container-links">
             Coming soon...
-          </a>
+            </a>
         </li>
       </ul>
     </nav>

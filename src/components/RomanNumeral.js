@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const RomanNumeral = () => {
-  const [roman, setRoman] = useState();
+  const [roman, setRoman] = useState('I, II, III...'); // placeholder letters for the page 
   const [romanInput, setRomanInput] = useState();
 
   const convertToRoman = (num) => {

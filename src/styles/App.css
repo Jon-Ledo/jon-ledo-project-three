@@ -3,7 +3,8 @@
 @import 'nav-bar.css';
 @import 'converter.css';
 @import 'roman-numeral.css';
-
+@import 'coming-soon.css';
+@import 'footer.css';
 
 html {
   font-size: 62.5%;
@@ -12,6 +13,12 @@ html {
 *, *::before, *::after {
   padding: 0;
   margin: 0;
+}
+
+body {
+  background-color: #FAF8FF;
+  font-size: 1.8rem;
+  color: #333;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -28,6 +35,7 @@ input[type=number] {
 
 .wrapper {
   max-width: 1280px;
+  width: 800px;
   text-align: center;
   margin: 0 auto;
 }
