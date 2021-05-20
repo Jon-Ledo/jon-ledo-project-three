@@ -61,7 +61,6 @@ function App() {
         })
         .then((jsonResponse) => {
           const data = jsonResponse;
-          console.log(data);
 
           // store that data into the useState variables 
           setCurrencies([...Object.keys(data.rates)])
