@@ -14,7 +14,7 @@ function App() {
   url.search = new URLSearchParams({
     reqUrl: proxiedUrl,
     'params[access_key]': apiKey,
-    'params[symbols]': 'EUR, GBP, JPY, USD'
+    'params[symbols]': 'CAD, EUR, USD, AUD, SGD, CHF, KYD, GBP, JOD, OMR, BHD, KWD'
   });
 
   // starting state for API fetch
