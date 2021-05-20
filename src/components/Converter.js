@@ -17,7 +17,7 @@ const Converter = (props) => {
         <label
           htmlFor="currencyInputs"
           className="sr-only"
-        >Starting Currency
+        >This is your current amount, converted from the Euro
         </label>
         <input
           type="number"
@@ -37,10 +37,10 @@ const Converter = (props) => {
         >
           {/* populate the options with the array key names */}
           {currencies.map((currency, index) => {
-            return (
-
-              <option key={index} value={currency}>{currency}</option>
-            )
+            if (currency !== 'EUR')
+              return (
+                <option key={index} value={currency}>{currency}</option>
+              )
           })}
 
         </select>
