@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../styles/App.css';
 import Header from './Header';
+import BaseCurrency from './BaseCurrency';
 import Converter from './Converter';
 import RomanNumeral from './RomanNumeral';
 
@@ -44,6 +45,7 @@ function App() {
   // whenever a currency option changes, use the event.target to apply the new option to the screen
   // Start currency
   const handleStartCurrencyChange = (event) => {
+
     setStartCurrency(event.target.value)
   }
   // End currency
@@ -75,7 +77,7 @@ function App() {
     }
 
     searchUrl();
-
+    // eslint-disable-next-line
   }, [])
 
 
@@ -87,6 +89,7 @@ function App() {
         .then(response => response.json())
         .then(jsonResponse => setRates(jsonResponse.rates[endCurrency]))
     }
+    // eslint-disable-next-line
   }, [startCurrency, endCurrency]);
 
 
@@ -108,7 +111,7 @@ function App() {
       <div className="converter-container-main" id="converter">
         <h2 className="converter__title">Currency Converter</h2>
         {/* starting currency */}
-        <Converter
+        <BaseCurrency
           currencies={currencies}
           currencyValue={startCurrency}
           handleCurrencyChange={handleStartCurrencyChange}
