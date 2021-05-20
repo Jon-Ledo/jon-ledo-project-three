@@ -42,8 +42,6 @@ const RomanNumeral = () => {
         }
       }
     }
-
-
     // fully constructed roman numeral string
     return romanNum
   }

@@ -47,11 +47,6 @@ function App() {
 
   // whenever a currency option changes, use the event.target to apply the new option to the screen
 
-  // Start currency
-  // const handleStartCurrencyChange = (event) => {
-  //   setStartCurrency(event.target.value)
-  // }
-
   // End currency
   const handleEndCurrencyChange = (event) => {
     setEndCurrency(event.target.value)
@@ -117,8 +112,6 @@ function App() {
           {/* starting EUR currency */}
           <BaseCurrency
             currencies={currencies}
-            // currencyValue={startCurrency}
-            // handleCurrencyChange={handleStartCurrencyChange}
             handleChangeValue={handleStartChangeValue}
             updatedValue={startValue}
           />

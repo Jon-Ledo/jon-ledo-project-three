@@ -2,12 +2,8 @@ const BaseCurrency = (props) => {
   const {
     updatedValue,
     currencies,
-    // currencyValue,
     handleChangeValue
   } = props
-
-  // console.log(currencyValue);
-
 
   return (
     <div className="converter-container">
@@ -29,7 +25,6 @@ const BaseCurrency = (props) => {
 
         <select
           className="form__select"
-        // value={currencyValue}
         >
           <option>
             {currencies[1]}
