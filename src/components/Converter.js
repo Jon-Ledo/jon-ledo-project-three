@@ -1,3 +1,5 @@
+import MoneyMan from '../assets/undraw_personal_finance_tqcd.svg';
+
 const Converter = (props) => {
   const {
     updatedValue,
@@ -44,8 +46,11 @@ const Converter = (props) => {
           })}
 
         </select>
-
       </form>
+
+      <div className="converter-container__img-container">
+        <img src={MoneyMan} alt="" />
+      </div>
     </div>
   );
 }

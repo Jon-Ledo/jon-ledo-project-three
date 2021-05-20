@@ -1,0 +1,32 @@
+.soon__container {
+  min-height: 80vh;
+  padding-top: 200px;
+}
+
+.soon__title {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.soon__flex-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.soon__list-container li {
+  list-style: none;
+  margin: 10px;
+  letter-spacing: 1px;
+  text-align: left;
+  font-size: 2.2rem;
+}
+
+.soon__img-container {
+  display: block;
+}
+
+.soon__img-container img{
+  width: 400px;
+  height: auto;
+}

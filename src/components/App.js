@@ -4,7 +4,9 @@ import Header from './Header';
 import BaseCurrency from './BaseCurrency';
 import Converter from './Converter';
 import RomanNumeral from './RomanNumeral';
+import ComingSoon from './ComingSoon';
 import Footer from './Footer';
+
 
 const apiKey = 'd7d99b359e28897f35e79f8fca7e89ce'
 
@@ -104,35 +106,42 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
-      <Header />
+    <>
+      <div className="wrapper">
+        <Header />
 
-      <div className="converter-container-main" id="converter">
-        <h2 className="converter__title">Currency Converter</h2>
-        <h3>Compare against the Euro (more features soon!)</h3>
+        <div className="converter-container__main" id="converter">
+          <h2 className="converter__title">Currency Converter</h2>
+          <h3>Compare against the Euro (more features soon!)</h3>
 
-        {/* starting EUR currency */}
-        <BaseCurrency
-          currencies={currencies}
-          // currencyValue={startCurrency}
-          // handleCurrencyChange={handleStartCurrencyChange}
-          handleChangeValue={handleStartChangeValue}
-          updatedValue={startValue}
-        />
+          {/* starting EUR currency */}
+          <BaseCurrency
+            currencies={currencies}
+            // currencyValue={startCurrency}
+            // handleCurrencyChange={handleStartCurrencyChange}
+            handleChangeValue={handleStartChangeValue}
+            updatedValue={startValue}
+          />
 
-        {/* output currency */}
-        <Converter
-          currencies={currencies}
-          currencyValue={endCurrency}
-          handleCurrencyChange={handleEndCurrencyChange}
-          handleChangeValue={handleEndChangeValue}
-          updatedValue={endValue}
-        />
+          <div className="converter-container__equals-sign">
+            =
+          </div>
+
+          {/* output currency */}
+          <Converter
+            currencies={currencies}
+            currencyValue={endCurrency}
+            handleCurrencyChange={handleEndCurrencyChange}
+            handleChangeValue={handleEndChangeValue}
+            updatedValue={endValue}
+          />
+        </div>
+
+        <RomanNumeral />
+        <ComingSoon />
       </div>
-
-      <RomanNumeral />
       <Footer />
-    </div>
+    </>
   );
 }
 

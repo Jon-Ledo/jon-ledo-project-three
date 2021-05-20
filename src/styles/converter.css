@@ -1,5 +1,5 @@
-.converter-container-main {
-  min-height: 100vh;
+.converter-container__main {
+  padding-top: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,10 +15,30 @@
 .form__input {
   padding: 10px;
   font-size: 1.8rem;
+  border: 1px solid #333;
+  border-radius: 5px;
 }
 
 .form__select {
   padding: 11px;
   font-size: 1.8rem;
   margin: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.converter-container__img-container {
+  display: block;
+  margin-top: 80px;
+}
+
+.converter-container__img-container img {
+  width: 500px;
+  height: auto;
+}
+
+.converter-container__equals-sign {
+  font-size: 5rem;
+  font-weight: bold;
+  padding-bottom: 5px;
 }
