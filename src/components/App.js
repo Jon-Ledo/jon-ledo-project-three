@@ -4,6 +4,7 @@ import Header from './Header';
 import BaseCurrency from './BaseCurrency';
 import Converter from './Converter';
 import RomanNumeral from './RomanNumeral';
+import Footer from './Footer';
 
 const apiKey = 'd7d99b359e28897f35e79f8fca7e89ce'
 
@@ -38,16 +39,17 @@ function App() {
   }
   else {
     startValue = value;
-    endValue = value / rates
+    endValue = value * rates
   }
 
 
   // whenever a currency option changes, use the event.target to apply the new option to the screen
-  // Start currency
-  const handleStartCurrencyChange = (event) => {
 
-    setStartCurrency(event.target.value)
-  }
+  // Start currency
+  // const handleStartCurrencyChange = (event) => {
+  //   setStartCurrency(event.target.value)
+  // }
+
   // End currency
   const handleEndCurrencyChange = (event) => {
     setEndCurrency(event.target.value)
@@ -55,7 +57,6 @@ function App() {
 
 
   useEffect(() => {
-
     const searchUrl = () => {
       fetch(url)
         .then((response) => {
@@ -66,10 +67,9 @@ function App() {
           console.log(data);
 
           // store that data into the useState variables 
-
           setCurrencies([...Object.keys(data.rates)])
           setStartCurrency(data.base)
-          // set the end currency option to the first currency from the array
+          // set the end currency option to the first currency from the array (hardcoded CAD from the api symbols param)
           const firstValue = Object.keys(data.rates)[0]
           setEndCurrency(firstValue)
           setRates(data.rates[firstValue])
@@ -95,7 +95,6 @@ function App() {
 
   // functions for updating the currency outputs, when directly being changed
   const handleStartChangeValue = (event) => {
-
     setValue(event.target.value)
     setValueOfSelectedCurrency(true)
   }
@@ -110,11 +109,13 @@ function App() {
 
       <div className="converter-container-main" id="converter">
         <h2 className="converter__title">Currency Converter</h2>
-        {/* starting currency */}
+        <h3>Compare against the Euro (more features soon!)</h3>
+
+        {/* starting EUR currency */}
         <BaseCurrency
           currencies={currencies}
-          currencyValue={startCurrency}
-          handleCurrencyChange={handleStartCurrencyChange}
+          // currencyValue={startCurrency}
+          // handleCurrencyChange={handleStartCurrencyChange}
           handleChangeValue={handleStartChangeValue}
           updatedValue={startValue}
         />
@@ -129,8 +130,8 @@ function App() {
         />
       </div>
 
-      {/* roman numeral temporary space */}
       <RomanNumeral />
+      <Footer />
     </div>
   );
 }

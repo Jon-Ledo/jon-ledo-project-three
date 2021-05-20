@@ -2,10 +2,11 @@ const BaseCurrency = (props) => {
   const {
     updatedValue,
     currencies,
-    currencyValue,
-    handleChangeValue,
-    handleCurrencyChange
+    // currencyValue,
+    handleChangeValue
   } = props
+
+  // console.log(currencyValue);
 
 
   return (
@@ -14,7 +15,7 @@ const BaseCurrency = (props) => {
         <label
           htmlFor="currencyInputs"
           className="sr-only"
-        >Starting Currency
+        >Enter your current amount in Euro
         </label>
         <input
           type="number"
@@ -26,22 +27,15 @@ const BaseCurrency = (props) => {
           onChange={handleChangeValue}
         />
 
-
         <select
           className="form__select"
-          value={currencyValue}
-          onChange={handleCurrencyChange}
+        // value={currencyValue}
         >
-          {/* populate the options with the array key names */}
-          {currencies.map((currency, index) => {
-            return (
-
-              <option key={index} value={currency}>{currency}</option>
-            )
-          })}
+          <option>
+            {currencies[1]}
+          </option>
 
         </select>
-
       </form>
     </div>
   );
